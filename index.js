@@ -7,7 +7,8 @@ import { View, Text } from 'react-native';
 // Função para carregar fontes personalizadas
 async function loadFonts() {
   await Font.loadAsync({
-    'LeagueSpartan': require('./assets/fonts/LeagueSpartan-VariableFont_wght.ttf'), // Caminho para sua fonte
+    'LeagueSpartan': require('./assets/fonts/LeagueSpartan-VariableFont_wght.ttf'),
+    'DidactGothic': require('./assets/fonts/DidactGothic-Regular.ttf'),
   });
 }
 
