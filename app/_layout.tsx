@@ -5,7 +5,7 @@ import { Theme, ThemeProvider } from '@react-navigation/native';
 import { SplashScreen, Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
-import { Platform } from 'react-native';
+import { Platform, Image, View, Text  } from 'react-native';
 import { NAV_THEME } from '~/lib/constants';
 import { useColorScheme } from '~/lib/useColorScheme';
 import { PortalHost } from '@rn-primitives/portal';
@@ -70,8 +70,22 @@ export default function RootLayout() {
         <Stack.Screen
           name='index'
           options={{
-            title: 'Starter Base',
+            headerTitle: () => (
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Image
+                  source={require('~/assets/images/logo-SmartParking.png')} // Caminho do logo
+                  style={{ width: 150, height: 150, marginRight: 0 }} // Ajuste o tamanho e espaçamento conforme necessário
+                  resizeMode='contain'
+                />
+                <Text style={{ fontFamily: 'LeagueSpartan', fontSize: 24, fontWeight: 'bold', color: 'white' }}>
+                  SMART <Text style={{ color: 'red' }}>P</Text>ARKING
+                </Text>
+              </View>
+            ),
             headerRight: () => <ThemeToggle />,
+            headerStyle: {
+              backgroundColor: '#0A2E44', // Azul-escuro para o fundo
+            },            
           }}
         />
       </Stack>
