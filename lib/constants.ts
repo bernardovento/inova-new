@@ -1,18 +1,18 @@
 export const NAV_THEME = {
   light: {
-    background: 'hsl(0 0% 100%)', // background
-    border: 'hsl(240 5.9% 90%)', // border
-    card: 'hsl(0 0% 100%)', // card
-    notification: 'hsl(0 84.2% 60.2%)', // destructive
-    primary: 'hsl(240 5.9% 10%)', // primary
-    text: 'hsl(240 10% 3.9%)', // foreground
+    background: '#ced5dd', // background
+    border: '#b0bfc4', // border - um tom mais escuro para contraste
+    card: '#ffffff', // card - mantendo o fundo branco para o card
+    notification: '#ff4d4d', // notification - cor para alertas
+    primary: '#004f6c', // primary - cor de destaque para o tema claro
+    text: '#000000', // text - cor do texto
   },
   dark: {
-    background: 'hsl(240 10% 3.9%)', // background
-    border: 'hsl(240 3.7% 15.9%)', // border
-    card: 'hsl(240 10% 3.9%)', // card
-    notification: 'hsl(0 72% 51%)', // destructive
-    primary: 'hsl(0 0% 98%)', // primary
-    text: 'hsl(0 0% 98%)', // foreground
+    background: '#081428', // background
+    border: '#0d2238', // border - um tom mais claro para contraste
+    card: '#0b1c30', // card - uma cor que combina com o fundo escuro
+    notification: '#ff9a9a', // notification - cor para alertas
+    primary: '#ffffff', // primary - cor de destaque para o tema escuro
+    text: '#ced5dd', // text - cor do texto
   },
 };

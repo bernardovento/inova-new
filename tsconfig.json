@@ -4,9 +4,8 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "*"
-      ]
+      "~/*": ["./*"],
+      "@react-navigation/*": ["./node_modules/@react-navigation/*"]
     }
   },
   "include": [

@@ -9,6 +9,7 @@ async function loadFonts() {
   await Font.loadAsync({
     'LeagueSpartan': require('./assets/fonts/LeagueSpartan-VariableFont_wght.ttf'),
     'DidactGothic': require('./assets/fonts/DidactGothic-Regular.ttf'),
+    'OpenSans': require('./assets/fonts/OpenSans-VariableFont_wdth,wght.ttf'),
   });
 }
 

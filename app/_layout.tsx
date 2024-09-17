@@ -74,7 +74,7 @@ export default function RootLayout() {
               <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Image
                   source={require('~/assets/images/logo-SmartParking.png')} // Caminho do logo
-                  style={{ width: 150, height: 150, marginRight: 0 }} // Ajuste o tamanho e espaçamento conforme necessário
+                  style={{ width: 130, height: 130, marginRight: 0 }} // Ajuste o tamanho e espaçamento conforme necessário
                   resizeMode='contain'
                 />
                 <Text style={{ fontFamily: 'LeagueSpartan', fontSize: 24, fontWeight: 'bold', color: 'white' }}>
