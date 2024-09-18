@@ -12,6 +12,12 @@ import { ThemeToggle } from '~/components/ThemeToggle';
 import { setAndroidNavigationBar } from '~/lib/android-navigation-bar';
 import { createDrawerNavigator } from '@react-navigation/drawer'; // Importa o Drawer Navigator
 import HomeScreen from '~/app/HomeScreen';
+import InfoScreen from '~/app/InfoScreen';
+import ContactScreen from '~/app/ContactScreen';
+import FeedBackScreen from '~/app/FeedBackScreen';
+import LoginScreen from '~/app/LoginScreen';
+
+
 import { Ionicons } from '@expo/vector-icons';
 
 
@@ -70,41 +76,93 @@ export default function RootLayout() {
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
       <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
       <Drawer.Navigator
-  screenOptions={({ navigation }) => ({
-    headerTitle: () => (
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Image
-          source={require('~/assets/images/logo-SmartParking.png')}
-          style={{ width: 130, height: 130, marginRight: 0 }}
-          resizeMode="contain"
-        />
-        <Text style={{ fontFamily: 'LeagueSpartan', fontSize: 24, fontWeight: 'bold', color: 'white' }}>
-          SMART <Text style={{ color: 'red' }}>P</Text>ARKING
-        </Text>
-      </View>
-    ),
-    headerLeft: () => null, // Remove o ícone padrão do Drawer no lado esquerdo
-    headerRight: () => (
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <ThemeToggle />
-        <TouchableOpacity
-          onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
-          style={{ marginRight: 10 }}
-        >
-          <Ionicons name="menu" size={24} color="white" />
-        </TouchableOpacity>
-      </View>
-    ),
-    headerStyle: {
-      backgroundColor: '#0A2E44', // Mantém o azul-escuro do fundo
-    },
-    drawerPosition: 'right', // Define o drawer para a direita
-  })}
->
-
-          <Drawer.Screen name="HomeScreen" component={HomeScreen} />
-          {/* Adicione outras telas aqui no Drawer se necessário */}
-        </Drawer.Navigator>
+        screenOptions={({ navigation }) => ({
+          headerTitle: () => (
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Image
+                source={require('~/assets/images/logo-SmartParking.png')}
+                style={{ width: 130, height: 130, marginLeft: -20 }}
+                resizeMode="contain"
+              />
+              <Text style={{ fontFamily: 'LeagueSpartan', fontSize: 24, fontWeight: 'bold', color: 'white' }}>
+                SMART <Text style={{ color: 'red' }}>P</Text>ARKING
+              </Text>
+            </View>
+          ),
+          headerLeft: () => null, // Remove o ícone padrão do Drawer no lado esquerdo
+          headerRight: () => (
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <ThemeToggle />
+              <TouchableOpacity
+                onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+                style={{ marginRight: 10 }}
+              >
+              <Ionicons name="menu" size={24} color="white" />
+              </TouchableOpacity>
+            </View>
+          ),
+          headerStyle: {
+            backgroundColor: '#0A2E44', // Mantém o azul-escuro do fundo
+          },
+          drawerPosition: 'right', // Define o drawer para a direita
+        })}
+      >
+      <Drawer.Screen 
+        name="HomeScreen" 
+        component={HomeScreen} 
+        options={{ 
+          drawerLabel: 'Início', 
+          title: 'Início',
+          headerTitleStyle: {
+            fontFamily: 'DidactGothic',  // Troque pela sua fonte personalizada
+          },      
+        }}
+      />
+      <Drawer.Screen 
+        name="InfoScreen" 
+        component={InfoScreen} 
+        options={{ 
+          drawerLabel: 'Como Funciona', 
+          title: 'Como Funciona',
+          headerTitleStyle: {
+            fontFamily: 'DidactGothic',  // Troque pela sua fonte personalizada
+          }, 
+        }}
+      />
+      <Drawer.Screen 
+        name="LoginScreen" 
+        component={LoginScreen} 
+        options={{ 
+          drawerLabel: 'Login | Cadastrar', 
+          title: 'Login | Cadastrar',
+          headerTitleStyle: {
+            fontFamily: 'DidactGothic',  // Troque pela sua fonte personalizada
+          }, 
+        }}
+      />
+      <Drawer.Screen 
+        name="FeedBackScreen" 
+        component={FeedBackScreen} 
+        options={{ 
+          drawerLabel: 'Comentários', 
+          title: 'Comentários',
+          headerTitleStyle: {
+            fontFamily: 'DidactGothic',  // Troque pela sua fonte personalizada
+          }, 
+        }}
+      />
+      <Drawer.Screen 
+        name="ContactScreen" 
+        component={ContactScreen} 
+        options={{ 
+          drawerLabel: 'Contato', 
+          title: 'Contato',
+          headerTitleStyle: {
+            fontFamily: 'DidactGothic',  // Troque pela sua fonte personalizada
+          }, 
+        }}
+      />
+      </Drawer.Navigator>
       <PortalHost />
     </ThemeProvider>
   );

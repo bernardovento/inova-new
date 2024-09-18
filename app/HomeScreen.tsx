@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useTheme } from '@react-navigation/native';
-import { View, Image, Dimensions} from 'react-native';
+import { View, Image, Dimensions } from 'react-native';
 import { Text } from '~/components/ui/text';
 import { Button } from '~/components/ui/button';
 import { MoveRight } from '~/lib/icons/MoveRight';
@@ -26,17 +26,19 @@ export default function HomeScreen() {
         style={{
           flex: 1,
           justifyContent: 'center',
-          alignItems: isDesktopOrTablet ? 'flex-start' : 'center',
+          alignItems: isDesktopOrTablet ? 'flex-start' : 'center', // Alinha à esquerda no desktop e centraliza em dispositivos menores
           gap: 5,
+          paddingRight: isDesktopOrTablet ? 40 : 0, // Adiciona padding direito para alinhar com o botão
+          paddingLeft: isDesktopOrTablet ? 20 : 20, // Padding à esquerda para alinhamento
         }}
       >
         <Text
           style={{
             color: colors.text,
-            fontSize: isDesktopOrTablet ? 48 : 32, // Ajuste de tamanho de fonte para diferentes dispositivos
+            fontSize: isDesktopOrTablet ? 96 : 40, // Ajuste de tamanho de fonte para diferentes dispositivos
             fontFamily: 'DidactGothic',
-            marginTop: 40,
-            padding: 10,
+            marginTop: isDesktopOrTablet ? -60 : 40,
+            padding: isDesktopOrTablet ? 40 : 4,
           }}
         >
           Sua Vaga
@@ -46,9 +48,9 @@ export default function HomeScreen() {
           <Text
             style={{
               color: colors.text,
-              fontSize: isDesktopOrTablet ? 48 : 32,
+              fontSize: isDesktopOrTablet ? 96 : 40,
               fontFamily: 'DidactGothic',
-              padding: 10,
+              padding: isDesktopOrTablet ? 40 : 4,
             }}
           >
             a um
@@ -63,9 +65,9 @@ export default function HomeScreen() {
         <Text
           style={{
             color: colors.text,
-            fontSize: isDesktopOrTablet ? 48 : 32,
+            fontSize: isDesktopOrTablet ? 96 : 40,
             fontFamily: 'DidactGothic',
-            padding: 10,
+            padding: isDesktopOrTablet ? 40 : 4,
           }}
         >
           clique!
@@ -74,11 +76,12 @@ export default function HomeScreen() {
         <Text
           style={{
             color: colors.text,
-            fontSize: 20,
+            fontSize: isDesktopOrTablet ? 20 : 16,
             fontFamily: 'DidactGothic',
-            textAlign: 'center',
-            marginTop: 40, // Redução do espaçamento em dispositivos menores
+            textAlign: 'left', // Alinha o texto à esquerda
+            marginTop: isDesktopOrTablet ? 120 : 20, // Redução do espaçamento em dispositivos menores
             paddingHorizontal: isDesktopOrTablet ? 0 : 20, // Adiciona padding horizontal em dispositivos menores
+            maxWidth: isDesktopOrTablet ? 600 : '100%', // Limita a largura no PC para forçar a quebra de linha
           }}
         >
           Encontre e reserve seu estacionamento de forma rápida, segura e conveniente para você.
@@ -88,11 +91,11 @@ export default function HomeScreen() {
           style={{
             backgroundColor: '#ff3131',
             borderRadius: 30,
-            padding: 20,
+            padding: isDesktopOrTablet ? 25 : 20,
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
-            marginTop: 30,
+            marginTop: isDesktopOrTablet ? 120 : 25,
           }}
         >
           <Text style={{ color: '#fff', fontSize: 16, marginRight: 10, fontFamily: 'OpenSans' }}>
@@ -114,8 +117,8 @@ export default function HomeScreen() {
         <Image
           source={require('~/assets/images/image-car.png')}
           style={{
-            width: isDesktopOrTablet ? 400 : 250, // Ajusta o tamanho da imagem com base no dispositivo
-            height: isDesktopOrTablet ? 400 : 250,
+            width: isDesktopOrTablet ? 1200 : 500, // Ajusta o tamanho da imagem com base no dispositivo
+            height: isDesktopOrTablet ? 1200 : 350,
           }}
           resizeMode="contain"
         />

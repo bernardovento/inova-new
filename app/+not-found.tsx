@@ -9,7 +9,7 @@ export default function NotFoundScreen() {
       <View>
         <Text>Essa tela não existe!</Text>
 
-        <Link href='/'>
+        <Link href='/HomeScreen'>
           <Text>Ir para a tela inicial!</Text>
         </Link>
       </View>
