@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useTheme } from '@react-navigation/native';
-import { View, Image, Dimensions } from 'react-native';
+import { View, Image, Dimensions, SafeAreaView  } from 'react-native';
 import { Text } from '~/components/ui/text';
 import { Button } from '~/components/ui/button';
 import { MoveRight } from '~/lib/icons/MoveRight';
@@ -8,11 +8,11 @@ import { MoveRight } from '~/lib/icons/MoveRight';
 const { width } = Dimensions.get('window');
 
 export default function HomeScreen() {
-  const isDesktopOrTablet = width >= 768;
+  const isDesktopOrTablet = width >= 1200;
   const { colors } = useTheme();
 
   return (
-    <View
+    <SafeAreaView 
       style={{
         flex: 1,
         flexDirection: isDesktopOrTablet ? 'row' : 'column',
@@ -29,7 +29,7 @@ export default function HomeScreen() {
           alignItems: isDesktopOrTablet ? 'flex-start' : 'center', // Alinha à esquerda no desktop e centraliza em dispositivos menores
           gap: 5,
           paddingRight: isDesktopOrTablet ? 40 : 0, // Adiciona padding direito para alinhar com o botão
-          paddingLeft: isDesktopOrTablet ? 20 : 20, // Padding à esquerda para alinhamento
+          paddingLeft: isDesktopOrTablet ? 20 : 0, // Padding à esquerda para alinhamento
         }}
       >
         <Text
@@ -117,12 +117,15 @@ export default function HomeScreen() {
         <Image
           source={require('~/assets/images/image-car.png')}
           style={{
-            width: isDesktopOrTablet ? 1200 : 500, // Ajusta o tamanho da imagem com base no dispositivo
-            height: isDesktopOrTablet ? 1200 : 350,
+            width: isDesktopOrTablet ? 1300 : '90%', // Ajusta o tamanho da imagem com base no dispositivo
+            height: isDesktopOrTablet ? 1300 : 350,
+            maxWidth: isDesktopOrTablet ? 1300 : 500, // Limita o tamanho máximo da imagem
+            maxHeight: isDesktopOrTablet ? 1300 : 350, // Limita a altura máxima da imagem
+            flexShrink: 1, // Permite que a imagem diminua em caso de conflito de espaço
           }}
           resizeMode="contain"
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
