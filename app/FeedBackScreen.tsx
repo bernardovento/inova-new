@@ -7,7 +7,7 @@ import { MoveRight } from '~/lib/icons/MoveRight';  // Importação do ícone Mo
 import { Button } from '~/components/ui/button';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 import { RootStackParamList } from './_layout'; // Importa o tipo de rotas que você definiu
-
+import { useColorScheme } from '~/lib/useColorScheme';
 
 const { width } = Dimensions.get('window');
 
@@ -36,6 +36,8 @@ const feedbacks = [
 ];
 
 export default function FeedbackScreen() {
+  const { isDarkColorScheme } = useColorScheme();
+
   const navigation = useNavigation<NavigationProp<RootStackParamList, 'EnterFeedBackScreen'>>();
   const isDesktopOrTablet = width >= 768;
 
@@ -67,12 +69,12 @@ export default function FeedbackScreen() {
 
         {/* Ícones de navegação */}
         <View style={{ flexDirection: 'row', marginTop: 20, alignItems: 'center' }}>
-          <TouchableOpacity onPress={handlePrevious} style={{ padding: 10 , paddingRight:250}}>
-            <MoveLeft color='#ced5dd' size={40} strokeWidth={1.5} />
+          <TouchableOpacity onPress={handlePrevious} style={{ padding: 10}}>
+            <MoveLeft color={isDarkColorScheme ? '#ced5dd':'#081428'} size={40} strokeWidth={1.5} />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={handleNext} style={{ padding: 10 }}>
-            <MoveRight color='#ced5dd' size={40} strokeWidth={1.5} />
+            <MoveRight color= {isDarkColorScheme ? '#ced5dd':'#081428'} size={40} strokeWidth={1.5} />
           </TouchableOpacity>
         </View>
       </View>
@@ -81,10 +83,11 @@ export default function FeedbackScreen() {
         style={{
           alignSelf: 'center', // Centraliza o botão horizontalmente
           width: isDesktopOrTablet ? '30%' : '100%',        // Define a largura como 60% da largura da tela
-          marginTop: 20        // Espaçamento superior opcional
+          marginTop: 20,        // Espaçamento superior opcional
+          backgroundColor: colors.primary
         }}
       >
-        Deixe o seu feedback!
+        <Text style={{ color: colors.textInverse  }}>Deixe o seu feedback!</Text>
       </Button> 
     </SafeAreaView>
   );

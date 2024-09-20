@@ -117,7 +117,7 @@ export default function HomeScreen() {
         <Image
           source={require('~/assets/images/image-car.png')}
           style={{
-            width: isDesktopOrTablet ? 1300 : '90%', // Ajusta o tamanho da imagem com base no dispositivo
+            width: isDesktopOrTablet ? 1300 : 1300, // Ajusta o tamanho da imagem com base no dispositivo
             height: isDesktopOrTablet ? 1300 : 350,
             maxWidth: isDesktopOrTablet ? 1300 : 500, // Limita o tamanho máximo da imagem
             maxHeight: isDesktopOrTablet ? 1300 : 350, // Limita a altura máxima da imagem

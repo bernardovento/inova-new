@@ -2,6 +2,7 @@ import { useTheme } from '@react-navigation/native';
 import { View, Dimensions } from 'react-native';
 import * as React from 'react';
 import { Button } from '~/components/ui/button';
+
 import {
   Card,
   CardContent,
@@ -24,6 +25,18 @@ export default function LoginScreen() {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', padding: 6, backgroundColor: colors.background }}>
+      <Label
+        style={{
+          color: colors.text,
+          textAlign: 'center',    // Centraliza o texto horizontalmente
+          fontSize: 18,           // Aumenta o tamanho da fonte
+          fontWeight: 'bold',     // Deixa o texto em negrito
+          marginBottom: 20,       // Adiciona espaçamento inferior
+          paddingHorizontal: 10,  // Adiciona padding horizontal para evitar que o texto encoste nas bordas
+        }}
+      >
+        Infelizmente, preferimos deixar apenas para demonstração, desativando o registro e login!
+      </Label>
       <Tabs
         value={value}
         onValueChange={setValue}
@@ -58,6 +71,7 @@ export default function LoginScreen() {
                 <Input
                   id='email'
                   placeholder="you@company.com"
+                  editable={false}
                   style={{ backgroundColor: colors.card, color: colors.text }}
                 />
               </View>
@@ -67,12 +81,13 @@ export default function LoginScreen() {
                   id='password'
                   placeholder="Senha"
                   secureTextEntry={true}
+                  editable={false}
                   style={{ backgroundColor: colors.card, color: colors.text }}
                 />
               </View>
             </CardContent>
             <CardFooter>
-              <Button style={{ backgroundColor: colors.primary }}>
+              <Button style={{ backgroundColor: colors.primary }} disabled={true}>
                 <Text style={{ color: colors.textInverse }}>Login</Text>
               </Button>
             </CardFooter>
@@ -92,6 +107,7 @@ export default function LoginScreen() {
                 <Input
                   id='name'
                   placeholder='Seu nome completo'
+                  editable={false}
                   style={{ backgroundColor: colors.card, color: colors.text }}
                 />
               </View>
@@ -100,6 +116,7 @@ export default function LoginScreen() {
                 <Input
                   id='email'
                   placeholder='you@company.com'
+                  editable={false}
                   style={{ backgroundColor: colors.card, color: colors.text }}
                 />
               </View>
@@ -109,6 +126,7 @@ export default function LoginScreen() {
                   id='password'
                   placeholder='Senha'
                   secureTextEntry={true}
+                  editable={false}
                   style={{ backgroundColor: colors.card, color: colors.text }}
                 />
               </View>
@@ -118,12 +136,13 @@ export default function LoginScreen() {
                   id='confirmPassword'
                   placeholder='Confirmar Senha'
                   secureTextEntry={true}
+                  editable={false}
                   style={{ backgroundColor: colors.card, color: colors.text }}
                 />
               </View>
             </CardContent>
             <CardFooter>
-              <Button style={{ backgroundColor: colors.primary }}>
+              <Button style={{ backgroundColor: colors.primary }} disabled={true}>
                 <Text style={{ color: colors.textInverse  }}>Cadastrar</Text>
               </Button>
             </CardFooter>
