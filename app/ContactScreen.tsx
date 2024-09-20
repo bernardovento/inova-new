@@ -17,9 +17,9 @@ export default function ContactScreen() {
       description: 'Bernardo é o desenvolvedor líder e responsável por todo o projeto. Ele projetou e implementou tanto o aplicativo web quanto a API e o banco de dados.',
     },
     {
-      name: 'Rafael',
-      email: 'rafael@example.com',
-      phone: '+55 11 88888-8888',
+      name: 'Rafael Barbosa Crema',
+      email: 'rafael.crema333@gmail.com',
+      phone: '+55 27 99910-3905',
       description: 'Rafael é o especialista em backend, garantindo a integração e a performance dos serviços.',
     },
     {
