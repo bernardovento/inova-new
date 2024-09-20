@@ -10,13 +10,22 @@ import { useColorScheme } from '~/lib/useColorScheme';
 import { PortalHost } from '@rn-primitives/portal';
 import { ThemeToggle } from '~/components/ThemeToggle';
 import { setAndroidNavigationBar } from '~/lib/android-navigation-bar';
-import { createDrawerNavigator } from '@react-navigation/drawer'; // Importa o Drawer Navigator
+import { createDrawerNavigator, DrawerNavigationProp  } from '@react-navigation/drawer'; // Importa o Drawer Navigator
 import HomeScreen from '~/app/HomeScreen';
 import InfoScreen from '~/app/InfoScreen';
 import ContactScreen from '~/app/ContactScreen';
 import FeedBackScreen from '~/app/FeedBackScreen';
 import LoginScreen from '~/app/LoginScreen';
+import EnterFeedBackScreen from '~/app/EnterFeedBackScreen';
 
+export type RootStackParamList = {
+  HomeScreen: undefined; // undefined se não há parâmetros para a rota
+  InfoScreen: undefined;
+  LoginScreen: undefined;
+  FeedBackScreen: undefined;
+  ContactScreen: undefined;
+  EnterFeedBackScreen: undefined;
+};
 
 import { Ionicons } from '@expo/vector-icons';
 
@@ -157,6 +166,17 @@ export default function RootLayout() {
         options={{ 
           drawerLabel: 'Contato', 
           title: 'Contato',
+          headerTitleStyle: {
+            fontFamily: 'DidactGothic',  // Troque pela sua fonte personalizada
+          }, 
+        }}
+      />
+      <Drawer.Screen 
+        name="EnterFeedBackScreen" 
+        component={EnterFeedBackScreen} 
+        options={{ 
+          drawerLabel: 'Deixe seu FeedBack', 
+          title: 'Deixe seu FeedBack',
           headerTitleStyle: {
             fontFamily: 'DidactGothic',  // Troque pela sua fonte personalizada
           }, 

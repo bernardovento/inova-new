@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useTheme } from '@react-navigation/native';
-import { View, Dimensions, ScrollView, SafeAreaView } from 'react-native';
+import { View, Dimensions, ScrollView, SafeAreaView, StyleSheet  } from 'react-native';
 import { Text } from '~/components/ui/text';
 import {
   Accordion,
@@ -16,14 +16,8 @@ export default function InfoScreen() {
   const { colors } = useTheme();
 
   return (
-    <ScrollView style={{ flex: 1 }}>
-      <SafeAreaView style={{ 
-        flex: isDesktopOrTablet ? 0.5 : 1, 
-        justifyContent: 'center', 
-        alignItems: 'center',
-        padding: 16,
-        backgroundColor: colors.background
-      }}>
+    <ScrollView style={styles.container}>
+      <SafeAreaView style={[styles.safeArea, { backgroundColor: colors.background }]}>
         <Accordion
           type='multiple'
           collapsible
@@ -46,7 +40,7 @@ export default function InfoScreen() {
             </AccordionTrigger>
             <AccordionContent>
               <Text style={{ fontSize: 16 }}>
-                O aplicativo conectará motoristas a estacionamentos disponíveis, permitindo a reserva de vagas e pagamento online, facilitando o dia a dia.
+                O aplicativo conectará motoristas a estacionamentos disponíveis, permitindo a reserva de vagas online, facilitando o dia a dia.
               </Text>
             </AccordionContent>
           </AccordionItem>
@@ -68,45 +62,23 @@ export default function InfoScreen() {
             </AccordionTrigger>
             <AccordionContent>
               <Text style={{ fontSize: 16 }}>
-                Os usuários economizarão tempo, evitarão filas e garantirão uma vaga antes de chegar ao destino, com informações em tempo real sobre disponibilidade e preços.
+                Os usuários economizarão tempo, evitarão filas e garantirão uma vaga antes de chegar ao destino, com informações em tempo real sobre disponibilidade.
               </Text>
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value='item-5'>
             <AccordionTrigger>
-              <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Quais métodos de pagamento estarão disponíveis?</Text>
+              <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Como será possível alterar ou cancelar uma reserva?</Text>
             </AccordionTrigger>
             <AccordionContent>
               <Text style={{ fontSize: 16 }}>
-                Aceitaremos pagamentos via cartão de crédito, débito e carteiras digitais como Google Pay e Apple Pay.
+                Os usuários poderão modificar ou cancelar reservas diretamente no aplicativo.
               </Text>
             </AccordionContent>
           </AccordionItem>
 
           <AccordionItem value='item-6'>
-            <AccordionTrigger>
-              <Text style={{ fontWeight: 'bold', fontSize: 18 }}>O aplicativo será seguro para pagamentos?</Text>
-            </AccordionTrigger>
-            <AccordionContent>
-              <Text style={{ fontSize: 16 }}>
-                Sim, utilizaremos criptografia avançada para garantir transações seguras e seguir rigorosos protocolos de segurança de dados.
-              </Text>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value='item-7'>
-            <AccordionTrigger>
-              <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Como será possível alterar ou cancelar uma reserva?</Text>
-            </AccordionTrigger>
-            <AccordionContent>
-              <Text style={{ fontSize: 16 }}>
-                Os usuários poderão modificar ou cancelar reservas diretamente no aplicativo até 30 minutos antes do horário de chegada.
-              </Text>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value='item-8'>
             <AccordionTrigger>
               <Text style={{ fontWeight: 'bold', fontSize: 18 }}>O aplicativo oferecerá suporte em tempo real?</Text>
             </AccordionTrigger>
@@ -123,7 +95,7 @@ export default function InfoScreen() {
             </AccordionTrigger>
             <AccordionContent>
               <Text style={{ fontSize: 16 }}>
-                Proprietários de estacionamentos poderão se cadastrar na nossa plataforma preenchendo o formulário na seção "Para Estacionamentos".
+                Proprietários de estacionamentos poderão se cadastrar na nossa plataforma entrando em contato conosco.
               </Text>
             </AccordionContent>
           </AccordionItem>
@@ -145,7 +117,7 @@ export default function InfoScreen() {
             </AccordionTrigger>
             <AccordionContent>
               <Text style={{ fontSize: 16 }}>
-                Não haverá custos adicionais para os motoristas além do valor da reserva da vaga. Seremos transparentes em relação aos preços.
+                Não haverá custos adicionais para os motoristas.
               </Text>
             </AccordionContent>
           </AccordionItem>
@@ -154,3 +126,15 @@ export default function InfoScreen() {
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  safeArea: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 16,
+  }
+});
