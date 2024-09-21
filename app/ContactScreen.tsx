@@ -14,25 +14,25 @@ export default function ContactScreen() {
       name: 'Bernardo Rauta Ramos',
       email: 'bernardovento@hotmail.com',
       phone: '+55 27 99606-2408',
-      description: 'Bernardo é o desenvolvedor líder e responsável por todo o projeto. Ele projetou e implementou tanto o aplicativo web quanto a API e o banco de dados.',
+      description: 'Bernardo tem 24 anos, é o líder do grupo e responsável por todo o projeto. Ele projetou e implementou tanto o aplicativo web quanto a API e o banco de dados.',
     },
     {
       name: 'Rafael Barbosa Crema',
       email: 'rafael.crema333@gmail.com',
       phone: '+55 27 99910-3905',
-      description: 'Rafael é o especialista em backend, garantindo a integração e a performance dos serviços.',
+      description: 'Rafael tem 22 anos, implementou um modelo 3D experimental, na prototipagem do projeto, quanto também fez o Banco de Dados da API.',
     },
     {
       name: 'João Paulo Muniz Larroca',
       email: 'gui.souza2003oliveir@gmail.com',
       phone: '+55 27 99242-6508',
-      description: 'João cuida do design UI/UX, trazendo a melhor experiência visual para o aplicativo.',
+      description: '',
     },
     {
       name: 'Guilherme Souza Oliveira',
       email: 'guilherme@example.com',
       phone: '+55 27 99724-3699',
-      description: 'Experiente em trabalhar comPower BI, Excel e SQL. Conhece as linguagens C, C#, Python, Java JavaScript.',
+      description: '',
     },
   ];
 

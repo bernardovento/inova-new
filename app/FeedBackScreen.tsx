@@ -16,22 +16,22 @@ const feedbacks = [
   {
     userName: 'João Silva',
     date: '2024-09-20',
-    comment: 'Ótima experiência com o aplicativo! Muito prático e fácil de usar.'
+    comment: 'Ótima ideia do aplicativo! Muito prático e fácil de usar.'
   },
   {
     userName: 'Maria Oliveira',
     date: '2024-09-18',
-    comment: 'Consegui reservar minha vaga em poucos minutos. Recomendo!'
+    comment: 'Consigo ver o futuro dos estacionamentos. Recomendo!'
   },
   {
     userName: 'Carlos Souza',
     date: '2024-09-15',
-    comment: 'O aplicativo facilitou muito a minha rotina, muito prático!'
+    comment: 'O aplicativo facilitará muito a minha rotina, muito prático!'
   },
   {
     userName: 'Ana Costa',
     date: '2024-09-10',
-    comment: 'Adorei o suporte ao cliente, rápido e eficiente!'
+    comment: 'Adorei a ideia, rápida e eficiente!'
   }
 ];
 

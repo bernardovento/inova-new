@@ -89,7 +89,7 @@ export default function InfoScreen() {
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value='item-9'>
+          <AccordionItem value='item-7'>
             <AccordionTrigger>
               <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Como estacionamentos poderão se cadastrar no aplicativo?</Text>
             </AccordionTrigger>
@@ -100,7 +100,7 @@ export default function InfoScreen() {
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value='item-10'>
+          <AccordionItem value='item-8'>
             <AccordionTrigger>
               <Text style={{ fontWeight: 'bold', fontSize: 18 }}>O aplicativo terá funcionalidades de acessibilidade?</Text>
             </AccordionTrigger>
@@ -111,7 +111,7 @@ export default function InfoScreen() {
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value='item-11'>
+          <AccordionItem value='item-9'>
             <AccordionTrigger>
               <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Haverá algum custo adicional pelo uso do aplicativo?</Text>
             </AccordionTrigger>
