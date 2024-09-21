@@ -14,25 +14,25 @@ export default function ContactScreen() {
       name: 'Bernardo Rauta Ramos',
       email: 'bernardovento@hotmail.com',
       phone: '+55 27 99606-2408',
-      description: 'Bernardo tem 24 anos, é o líder do grupo e responsável por todo o projeto. Ele projetou e implementou tanto o aplicativo web quanto a API e o banco de dados.',
+      description: 'Bernardo, com 24 anos, é o líder visionário do grupo e o principal arquiteto do projeto. Ele foi o responsável pelo design e desenvolvimento completo do aplicativo web, da API e do banco de dados, garantindo que todas as funcionalidades estivessem integradas de forma eficiente e intuitiva.',
     },
     {
       name: 'Rafael Barbosa Crema',
       email: 'rafael.crema333@gmail.com',
       phone: '+55 27 99910-3905',
-      description: 'Rafael tem 22 anos, implementou um modelo 3D experimental, na prototipagem do projeto, quanto também fez o Banco de Dados da API.',
+      description: 'Com 22 anos, Rafael desempenhou um papel fundamental no desenvolvimento do projeto. Além de criar um modelo 3D experimental durante a fase de prototipagem, ele foi o responsável por estruturar o banco de dados da API, assegurando que os dados fossem gerenciados de maneira eficiente e segura.',
     },
     {
       name: 'João Paulo Muniz Larroca',
       email: 'gui.souza2003oliveir@gmail.com',
       phone: '+55 27 99242-6508',
-      description: '',
+      description: 'João Paulo, trouxe insights valiosos para a concepção do projeto, contribuindo para a clareza da apresentação final.',
     },
     {
       name: 'Guilherme Souza Oliveira',
       email: 'guilherme@example.com',
       phone: '+55 27 99724-3699',
-      description: '',
+      description: 'Guilherme ofereceu suporte criativo ao grupo, ajudando na comunicação eficaz da proposta durante a apresentação.',
     },
   ];
 
