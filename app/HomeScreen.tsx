@@ -4,10 +4,13 @@ import { View, Image, Dimensions, SafeAreaView  } from 'react-native';
 import { Text } from '~/components/ui/text';
 import { Button } from '~/components/ui/button';
 import { MoveRight } from '~/lib/icons/MoveRight';
+import { RootStackParamList } from './_layout';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
 
 export default function HomeScreen() {
+  const navigation = useNavigation<NavigationProp<RootStackParamList, 'ParkingScreen'>>();
   const isDesktopOrTablet = width >= 1200;
   const { colors } = useTheme();
 
@@ -88,6 +91,7 @@ export default function HomeScreen() {
         </Text>
 
         <Button
+          onPress={() => navigation.navigate('ParkingScreen')}
           style={{
             backgroundColor: '#ff3131',
             borderRadius: 30,
