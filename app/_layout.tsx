@@ -1,6 +1,6 @@
 import '~/global.css'; 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Theme, ThemeProvider, DrawerActions  } from '@react-navigation/native';
+import { Theme, ThemeProvider, DrawerActions } from '@react-navigation/native';
 import { SplashScreen } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
@@ -10,27 +10,18 @@ import { useColorScheme } from '~/lib/useColorScheme';
 import { PortalHost } from '@rn-primitives/portal';
 import { ThemeToggle } from '~/components/ThemeToggle';
 import { setAndroidNavigationBar } from '~/lib/android-navigation-bar';
-import { createDrawerNavigator, DrawerNavigationProp  } from '@react-navigation/drawer'; // Importa o Drawer Navigator
+import { createDrawerNavigator } from '@react-navigation/drawer'; 
 import HomeScreen from '~/app/HomeScreen';
 import InfoScreen from '~/app/InfoScreen';
 import ContactScreen from '~/app/ContactScreen';
 import FeedBackScreen from '~/app/FeedBackScreen';
 import LoginScreen from '~/app/LoginScreen';
 import EnterFeedBackScreen from '~/app/EnterFeedBackScreen';
-
-export type RootStackParamList = {
-  HomeScreen: undefined; // undefined se não há parâmetros para a rota
-  InfoScreen: undefined;
-  LoginScreen: undefined;
-  FeedBackScreen: undefined;
-  ContactScreen: undefined;
-  EnterFeedBackScreen: undefined;
-};
+import ParkingScreen from '~/app/ParkingScreen';
 
 import { Ionicons } from '@expo/vector-icons';
 
-
-const Drawer = createDrawerNavigator(); // Cria uma instância do Drawer Navigator
+const Drawer = createDrawerNavigator();
 
 const LIGHT_THEME: Theme = {
   dark: false,
@@ -87,103 +78,155 @@ export default function RootLayout() {
       <Drawer.Navigator
         screenOptions={({ navigation }) => ({
           headerTitle: () => (
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={styles.headerContainer}>
               <Image
                 source={require('~/assets/images/logo-SmartParking.png')}
-                style={{ width: 130, height: 130, marginLeft: -20 }}
+                style={styles.logo}
                 resizeMode="contain"
               />
-              <Text style={{ fontFamily: 'LeagueSpartan', fontSize: 24, fontWeight: 'bold', color: 'white' }}>
-                SMART <Text style={{ color: 'red' }}>P</Text>ARKING
+              <Text style={styles.leagueSpartanBold}>
+                SMART <Text style={styles.highlight}>P</Text>ARKING
               </Text>
             </View>
           ),
-          headerLeft: () => null, // Remove o ícone padrão do Drawer no lado esquerdo
+          headerLeft: () => null,
           headerRight: () => (
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View style={styles.headerRightContainer}>
               <ThemeToggle />
               <TouchableOpacity
                 onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
-                style={{ marginRight: 10 }}
+                style={styles.menuButton}
               >
-              <Ionicons name="menu" size={24} color="white" />
+                <Ionicons name="menu" size={24} color="white" />
               </TouchableOpacity>
             </View>
           ),
-          headerStyle: {
-            backgroundColor: '#0A2E44', // Mantém o azul-escuro do fundo
-          },
-          drawerPosition: 'right', // Define o drawer para a direita
+          headerStyle: styles.headerStyle,
+          drawerPosition: 'right',
+          drawerType: 'back',
         })}
       >
-      <Drawer.Screen 
-        name="HomeScreen" 
-        component={HomeScreen} 
-        options={{ 
-          drawerLabel: 'Início', 
-          title: 'Início',
-          headerTitleStyle: {
-            fontFamily: 'DidactGothic',  // Troque pela sua fonte personalizada
-          },      
-        }}
-      />
-      <Drawer.Screen 
-        name="InfoScreen" 
-        component={InfoScreen} 
-        options={{ 
-          drawerLabel: 'Como Funciona', 
-          title: 'Como Funciona',
-          headerTitleStyle: {
-            fontFamily: 'DidactGothic',  // Troque pela sua fonte personalizada
-          }, 
-        }}
-      />
-      <Drawer.Screen 
-        name="LoginScreen" 
-        component={LoginScreen} 
-        options={{ 
-          drawerLabel: 'Login | Cadastrar', 
-          title: 'Login | Cadastrar',
-          headerTitleStyle: {
-            fontFamily: 'DidactGothic',  // Troque pela sua fonte personalizada
-          }, 
-        }}
-      />
-      <Drawer.Screen 
-        name="FeedBackScreen" 
-        component={FeedBackScreen} 
-        options={{ 
-          drawerLabel: 'Comentários', 
-          title: 'Comentários',
-          headerTitleStyle: {
-            fontFamily: 'DidactGothic',  // Troque pela sua fonte personalizada
-          }, 
-        }}
-      />
-      <Drawer.Screen 
-        name="ContactScreen" 
-        component={ContactScreen} 
-        options={{ 
-          drawerLabel: 'Contato', 
-          title: 'Contato',
-          headerTitleStyle: {
-            fontFamily: 'DidactGothic',  // Troque pela sua fonte personalizada
-          }, 
-        }}
-      />
-      <Drawer.Screen 
-        name="EnterFeedBackScreen" 
-        component={EnterFeedBackScreen} 
-        options={{ 
-          drawerLabel: 'Deixe seu FeedBack', 
-          title: 'Deixe seu FeedBack',
-          headerTitleStyle: {
-            fontFamily: 'DidactGothic',  // Troque pela sua fonte personalizada
-          }, 
-        }}
-      />
+        <Drawer.Screen 
+          name="HomeScreen" 
+          component={HomeScreen} 
+          options={{ 
+            drawerLabel: 'Início', 
+            title: 'Início',
+            headerTitleStyle: styles.headerTitleStyle,    
+          }}
+        />
+        <Drawer.Screen 
+          name="LoginScreen" 
+          component={LoginScreen} 
+          options={{ 
+            drawerLabel: 'Login | Cadastrar', 
+            title: 'Login | Cadastrar',
+            headerTitleStyle: styles.headerTitleStyle, 
+          }}
+        />
+        <Drawer.Screen 
+          name="EnterFeedBackScreen" 
+          component={EnterFeedBackScreen} 
+          options={{ 
+            drawerLabel: 'Deixe seu FeedBack', 
+            title: 'Deixe seu FeedBack',
+            headerTitleStyle: styles.headerTitleStyle, 
+          }}
+        />
+        <Drawer.Screen 
+          name="ParkingScreen" 
+          component={ParkingScreen} 
+          options={{ 
+            drawerLabel: 'Estacione seu carro!', 
+            title: 'Estacione seu carro!',
+            headerTitleStyle: styles.headerTitleStyle, 
+          }}
+        />
+        <Drawer.Screen 
+          name="InfoScreen" 
+          component={InfoScreen} 
+          options={{ 
+            drawerLabel: 'Respostas Rápidas', 
+            title: 'Respostas Rápidas',
+            headerTitleStyle: styles.headerTitleStyle, 
+          }}
+        />
+        <Drawer.Screen 
+          name="FeedBackScreen" 
+          component={FeedBackScreen} 
+          options={{ 
+            drawerLabel: 'Feedback dos Usuários', 
+            title: 'Feedback dos Usuários',
+            headerTitleStyle: styles.headerTitleStyle, 
+          }}
+        />
+        <Drawer.Screen 
+          name="ContactScreen" 
+          component={ContactScreen} 
+          options={{ 
+            drawerLabel: 'Contato', 
+            title: 'Contato',
+            headerTitleStyle: styles.headerTitleStyle, 
+          }}
+        />
       </Drawer.Navigator>
       <PortalHost />
     </ThemeProvider>
   );
 }
+
+const styles = {
+  leagueSpartanBold: {
+    fontFamily: 'LeagueSpartan-Bold', // Nome da fonte carregada
+    fontWeight: '700', // Opcional: muitas vezes não é necessário quando usa variantes específicas
+    fontStyle: 'normal', // Estilo da fonte
+    color:'#ffffff',
+    fontSize:18
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 100, // Ajuste do tamanho da logo
+    height: 100,
+    marginLeft: -10,
+  },
+  headerTitle: {
+    fontFamily: 'Inter', // Fonte moderna
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  highlight: {
+    color: '#ff3131', // Destaque em vermelho moderno
+  },
+  headerRightContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  menuButton: {
+    marginRight: 10,
+    padding: 8,
+    borderRadius: 12,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)', // Fundo sutil
+    // Removido 'transition' pois não é suportado
+  },
+  headerStyle: {
+    backgroundColor: '#0A2E44', // Azul escuro moderno
+    shadowColor: 'rgba(0, 0, 0, 0.1)', // Sombras suaves
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    borderBottomLeftRadius: 12, // Bordas arredondadas
+    borderBottomRightRadius: 12,
+  },
+  headerTitleStyle: {
+    fontFamily: 'LeagueSpartan-Bold', // Fonte clean e moderna
+  },
+  drawerStyle: {
+    backgroundColor: 'white',
+    borderTopLeftRadius: 24, // Bordas arredondadas no Drawer
+    borderBottomLeftRadius: 24,
+  },
+};

@@ -8,6 +8,7 @@ import { View, Text } from 'react-native';
 async function loadFonts() {
   await Font.loadAsync({
     'LeagueSpartan': require('./assets/fonts/LeagueSpartan-VariableFont_wght.ttf'),
+    'LeagueSpartan-Bold': require('./assets/fonts/LeagueSpartan-Bold.ttf'),
     'DidactGothic': require('./assets/fonts/DidactGothic-Regular.ttf'),
     'OpenSans': require('./assets/fonts/OpenSans-VariableFont_wdth,wght.ttf'),
   });
